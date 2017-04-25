@@ -1,0 +1,12 @@
+---
+ - hosts: wipro
+   tasks:
+    - name: Installing apache 
+      yum: name=httpd state=absent
+
+     
+#    - name:  starting the apache service  
+#      service: name=httpd state=stopped enabled=no
+
+#    - name:  flushing firefox 
+#      command: iptables -F

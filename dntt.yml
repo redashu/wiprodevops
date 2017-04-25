@@ -1,0 +1,21 @@
+---
+ - hosts: uu
+   remote_user: root
+   tasks:
+    - name: Installing jdk 
+      command: rpm  -ivh http://10.154.16.205/hadoop/jdk-7u51-linux-x64.rpm 
+
+    - name: installing  hadoop rpm 
+      command: rpm -ivh http://10.154.16.205/hadoop/hadoop-1.2.1-1.x86_64.rpm  --replacefiles 
+
+    - name: copy of jdk path 
+      copy: src=/root/.bashrc dest=/root
+
+    - name: copy hdfs datanode 
+      copy: src=/etc/hadoop/data.xml  dest=/etc/hadoop/hdfs-site.xml 
+
+    - name: copy namenode contact hbt 
+      copy: src=/etc/hadoop/core-site.xml dest=/etc/hadoop owner=root mode=0644
+
+    - name: copy task tracker file 
+      copy: src=/etc/hadoop/mapred-site.xml dest=/etc/hadoop 
