@@ -1,0 +1,7 @@
+---
+ - hosts: all
+   remote_user: root
+   tasks: 
+    - name: creating users 
+      user: name=harry shell=/bin/bash state=present
+       

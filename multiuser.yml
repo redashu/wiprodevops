@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   remote_user: root
+   tasks: 
+    - name: creating users 
+      user:
+       name: "{{ item }}"
+       state: present
+    
+      with_items:
+       - test1
+       - test2
+       - harry1 
+       - harry2
+
+       

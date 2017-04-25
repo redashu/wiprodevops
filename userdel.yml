@@ -1,0 +1,6 @@
+---
+ - hosts: all
+   tasks: 
+    - name: delete users 
+      user: name=harry shell=/bin/bash state=absent
+       
