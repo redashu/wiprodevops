@@ -1,0 +1,11 @@
+---
+ - hosts: wipro
+   vars:
+    - a: "Plz do not change root password  "
+
+   tasks: 
+    - name: copy the a var value to all instances
+      copy:
+       dest: /etc/motd
+       content: "{{ a }}"
+
