@@ -1,0 +1,10 @@
+---
+ - hosts: all 
+   remote_user: root
+   vars:
+    - x: "checking !!"
+   tasks:
+    - name: reboot all centos 7 machine
+      command: cal
+      when: ansible_distribution=="CentOS"
+       

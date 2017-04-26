@@ -1,0 +1,10 @@
+---
+ - hosts: all
+   tasks:
+    - name: installing apache 
+      yum: name=httpd state=present
+      notify:
+       - start apache
+
+    - name: start apache
+      service: name=httpd state=started enabled=yes

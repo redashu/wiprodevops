@@ -1,0 +1,14 @@
+---
+# tasks file for apache
+- name: Install Apache
+  yum: name=httpd state=present
+  notify: 
+    - start apache
+
+- name: Create website directory
+  file: dest={{ x }}  state=directory 
+  notify:
+    - restart apache
+
+- name: copy the file
+  copy: src=index.html dest={{ x }}

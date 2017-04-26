@@ -1,0 +1,15 @@
+---
+ - hosts: all
+   remote_user: root
+   tasks:
+    - name: Installing Kvm hyper visor 
+      yum: name={{ item }} state=present
+      with_items:
+       - libvirt
+       - qemu-kvm 
+       - virt-manager 
+    - name: start api call for kvm hyper visor 
+      service: name=libvirtd state=started enabled=yes
+
+    - name: turning off selinux
+      command: setenforce 0

@@ -1,0 +1,16 @@
+---
+# tasks file for nfs
+ - name: installing all depend
+   yum: name={{ item }} state=present
+   with_items:
+    - nfs-utils
+    - rpcbind
+
+
+
+ - name: so make changes into configure file of nfs
+   template: src=nfs.j2 dest=/etc/exports
+   notify:
+    - start nfs
+
+ 

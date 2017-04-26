@@ -1,0 +1,6 @@
+---
+ - hosts: all
+   vars:
+    - x: /var/www/html/google
+   roles:
+    - apache

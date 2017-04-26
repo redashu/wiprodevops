@@ -1,0 +1,10 @@
+---
+ - hosts: all
+   remote_user: root
+   tasks:
+    - name: installing launch manager
+      yum: name=virt-install state=present
+  
+    - name: launch vms
+      shell: virt-install  --name os2 --ram 2048 --vcpu 1  --location  http://10.154.16.205/cent  --disk path=/var/lib/libvirt/images/os2.qcow2,size=10  
+

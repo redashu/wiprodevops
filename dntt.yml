@@ -1,13 +1,7 @@
 ---
- - hosts: uu
+ - hosts: a
    remote_user: root
    tasks:
-    - name: Installing jdk 
-      command: rpm  -ivh http://10.154.16.205/hadoop/jdk-7u51-linux-x64.rpm 
-
-    - name: installing  hadoop rpm 
-      command: rpm -ivh http://10.154.16.205/hadoop/hadoop-1.2.1-1.x86_64.rpm  --replacefiles 
-
     - name: copy of jdk path 
       copy: src=/root/.bashrc dest=/root
 
